@@ -22,8 +22,8 @@ class CoinRepository(private val apiService: API) {
     suspend fun getAllCoins() {
         var result = apiService.getAllCoins()
 
-        if (result.body() != null) {
-            coinListLiveData.postValue(result.body())
+        result.body()?.let { coinList ->
+            coinListLiveData.postValue(coinList)
         }
     }
 
