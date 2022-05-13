@@ -18,7 +18,6 @@ class CoinRepository(private val apiService: API) {
     val coinDetail: LiveData<CoinDetails>
         get() = coinDetailLiveData
 
-
     suspend fun getAllCoins() {
         var result = apiService.getAllCoins()
 
@@ -26,7 +25,6 @@ class CoinRepository(private val apiService: API) {
             coinListLiveData.postValue(coinList)
         }
     }
-
 
     suspend fun getCoinDetails(id: String) {
         var result = apiService.getCoinDetails(id)
